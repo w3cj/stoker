@@ -33,6 +33,7 @@ Utilities for [hono](https://www.npmjs.com/package/hono) and [@hono/zod-openapi]
         - [Example Usage](#example-usage-7)
       - [stoker/openapi/helpers/json-content-one-of](#stokeropenapihelpersjson-content-one-of)
         - [Example Usage](#example-usage-8)
+      - [stoker/openapi/helpers/one-of](#stokeropenapihelpersone-of)
     - [Schemas](#schemas)
       - [stoker/openapi/schemas/id-params](#stokeropenapischemasid-params)
         - [Example Usage](#example-usage-9)
@@ -306,7 +307,7 @@ const result = jsonContentOneOf(
 );
 ```
 
-> #### stoker/openapi/helpers/one-of
+#### stoker/openapi/helpers/one-of
 
 > Peer dependencies of `@asteasolutions/zod-to-openapi` and `openapi3-ts` required
 
