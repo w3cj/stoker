@@ -271,7 +271,7 @@ const response = jsonContentRequired(
 
 #### stoker/openapi/helpers/json-content-one-of
 
-> Requires `@asteasolutions/zod-to-openapi` to be installed
+> Peer dependencies of `@asteasolutions/zod-to-openapi` and `openapi3-ts` required
 
 Create a json content / schema description where the schema can be [oneOf](https://swagger.io/docs/specification/v3_0/data-models/oneof-anyof-allof-not/#oneof) multiple schemas. Useful when you have multiple possible validation response schemas.
 
@@ -308,7 +308,7 @@ const result = jsonContentOneOf(
 
 > #### stoker/openapi/helpers/one-of
 
-> Requires `@asteasolutions/zod-to-openapi` to be installed
+> Peer dependencies of `@asteasolutions/zod-to-openapi` and `openapi3-ts` required
 
 Used internally by `stoker/openapi/helpers/json-content-one-of` but exported here in case you need to access the generated schemas for other use cases.
 

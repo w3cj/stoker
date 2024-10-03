@@ -140,7 +140,8 @@
   "peerDependencies": {
     "@asteasolutions/zod-to-openapi": "^7.0.0",
     "@hono/zod-openapi": "^0.16.0",
-    "hono": "^4.0.0"
+    "hono": "^4.0.0",
+    "openapi3-ts": "^4.4.0"
   },
   "peerDependenciesMeta": {
     "@hono/zod-openapi": {
@@ -160,6 +161,7 @@
     "esno": "^4.7.0",
     "hono": "^4.6.3",
     "lint-staged": "^15.2.10",
+    "openapi3-ts": "^4.4.0",
     "pnpm": "^9.9.0",
     "simple-git-hooks": "^2.11.1",
     "ts-morph": "^23.0.0",

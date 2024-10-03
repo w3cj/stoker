@@ -44,6 +44,9 @@ importers:
       lint-staged:
         specifier: ^15.2.10
         version: 15.2.10
+      openapi3-ts:
+        specifier: ^4.4.0
+        version: 4.4.0
       pnpm:
         specifier: ^9.9.0
         version: 9.9.0
