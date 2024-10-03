@@ -31,13 +31,15 @@ Utilities for [hono](https://www.npmjs.com/package/hono) and [@hono/zod-openapi]
         - [Example Usage](#example-usage-6)
       - [stoker/openapi/helpers/json-content-required](#stokeropenapihelpersjson-content-required)
         - [Example Usage](#example-usage-7)
+      - [stoker/openapi/helpers/json-content-one-of](#stokeropenapihelpersjson-content-one-of)
+        - [Example Usage](#example-usage-8)
     - [Schemas](#schemas)
       - [stoker/openapi/schemas/id-params](#stokeropenapischemasid-params)
-        - [Example Usage](#example-usage-8)
-      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
         - [Example Usage](#example-usage-9)
-      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
         - [Example Usage](#example-usage-10)
+      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+        - [Example Usage](#example-usage-11)
   - [Credits](#credits)
 
 ## Utilities
@@ -265,6 +267,65 @@ const response = jsonContentRequired(
   schema,
   "Retrieve the message"
 );
+```
+
+#### stoker/openapi/helpers/json-content-one-of
+
+> Requires `@asteasolutions/zod-to-openapi` to be installed
+
+Create a json content / schema description where the schema can be [oneOf](https://swagger.io/docs/specification/v3_0/data-models/oneof-anyof-allof-not/#oneof) multiple schemas. Useful when you have multiple possible validation response schemas.
+
+##### Example Usage
+
+```ts
+import { z } from "@hono/zod-openapi";
+import createErrorSchema from "stocker/openapi/schemas/create-error-schema";
+import jsonContentOneOf from "stoker/openapi/helpers/json-content-one-of";
+import IdParamsSchema from "stoker/openapi/schemas/id-params";
+
+const bodySchema = z.object({
+  name: z.string(),
+});
+
+/*
+* Equivalent to:
+{
+  content: {
+    "application/json": {
+      schema: {
+        oneOf: SchemaObject[]
+      },
+    },
+  },
+  description: "Invalid Id params or Invalid Body"
+}
+*/
+const result = jsonContentOneOf(
+  [createErrorSchema(IdParamsSchema), createErrorSchema(bodySchema)],
+  "Invalid Id params or Invalid Body"
+);
+```
+
+> #### stoker/openapi/helpers/one-of
+
+> Requires `@asteasolutions/zod-to-openapi` to be installed
+
+Used internally by `stoker/openapi/helpers/json-content-one-of` but exported here in case you need to access the generated schemas for other use cases.
+
+```ts
+import { z } from "@hono/zod-openapi";
+import createErrorSchema from "stocker/openapi/schemas/create-error-schema";
+import oneOf from "stoker/openapi/helpers/one-of";
+import IdParamsSchema from "stoker/openapi/schemas/id-params";
+
+const bodySchema = z.object({
+  name: z.string(),
+});
+
+/*
+* Returns: SchemaObject[]
+*/
+const result = oneOf([createErrorSchema(IdParamsSchema), createErrorSchema(bodySchema)]);
 ```
 
 ### Schemas

@@ -14,6 +14,8 @@ export default defineBuildConfig({
     "src/openapi/helpers/index",
     "src/openapi/helpers/json-content",
     "src/openapi/helpers/json-content-required",
+    "src/openapi/helpers/json-content-one-of",
+    "src/openapi/helpers/one-of",
     "src/openapi/schemas/index",
     "src/openapi/schemas/id-params",
     "src/openapi/schemas/create-message-object",

@@ -1,7 +1,7 @@
 {
   "name": "stoker",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "packageManager": "pnpm@9.9.0",
   "description": "Utilities for hono and @hono/zod-openapi",
   "author": "w3cj <cj@null.computer>",
@@ -80,6 +80,16 @@
       "import": "./dist/openapi/helpers/json-content-required.mjs",
       "require": "./dist/openapi/helpers/json-content-required.cjs"
     },
+    "./openapi/helpers/json-content-one-of": {
+      "types": "./dist/openapi/helpers/json-content-one-of.d.ts",
+      "import": "./dist/openapi/helpers/json-content-one-of.mjs",
+      "require": "./dist/openapi/helpers/json-content-one-of.cjs"
+    },
+    "./openapi/helpers/one-of": {
+      "types": "./dist/openapi/helpers/one-of.d.ts",
+      "import": "./dist/openapi/helpers/one-of.mjs",
+      "require": "./dist/openapi/helpers/one-of.cjs"
+    },
     "./openapi/schemas": {
       "types": "./dist/openapi/schemas/index.d.ts",
       "import": "./dist/openapi/schemas/index.mjs",
@@ -128,6 +138,7 @@
     "update-http-statuses": "esno scripts/update-http-statuses.ts"
   },
   "peerDependencies": {
+    "@asteasolutions/zod-to-openapi": "^7.0.0",
     "@hono/zod-openapi": "^0.16.0",
     "hono": "^4.0.0"
   },
@@ -140,6 +151,7 @@
     "@antfu/eslint-config": "^3.3.2",
     "@antfu/ni": "^0.23.0",
     "@antfu/utils": "^0.7.10",
+    "@asteasolutions/zod-to-openapi": "^7.1.2",
     "@hono/zod-openapi": "^0.16.3",
     "@types/node": "^22.5.4",
     "bumpp": "^9.5.2",
