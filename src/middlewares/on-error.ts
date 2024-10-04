@@ -11,7 +11,7 @@ const onError: ErrorHandler = (err, c) => {
     ? (currentStatus as StatusCode)
     : INTERNAL_SERVER_ERROR;
   // eslint-disable-next-line node/prefer-global/process
-  const env = c.env.NODE_ENV || process.env.NODE_ENV;
+  const env = c.env?.NODE_ENV || process.env?.NODE_ENV;
   return c.json(
     {
       message: err.message,
