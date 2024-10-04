@@ -1,14 +1,12 @@
-import type { z } from "@hono/zod-openapi";
-
 import {
   OpenApiGeneratorV3,
   OpenAPIRegistry,
 } from "@asteasolutions/zod-to-openapi";
 
+import type { ZodSchema } from "./types";
+
 export default function oneOf<
-  T extends
-  | z.AnyZodObject
-  | z.ZodArray<z.AnyZodObject>,
+  T extends ZodSchema,
 >(schemas: T[]) {
   const registry = new OpenAPIRegistry();
 

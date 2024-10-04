@@ -1,9 +1,7 @@
-import type { z } from "@hono/zod-openapi";
+import type { ZodSchema } from "./types";
 
 export default function jsonContent<
-  T extends
-  | z.AnyZodObject
-  | z.ZodArray<z.AnyZodObject>,
+  T extends ZodSchema,
 >(schema: T, description: string) {
   return {
     content: {
