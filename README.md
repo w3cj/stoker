@@ -10,6 +10,8 @@ _stoke the flame 🤙🔥_
 
 Utilities for [hono](https://www.npmjs.com/package/hono) and [@hono/zod-openapi](https://www.npmjs.com/package/@hono/zod-openapi).
 
+To see real world usage of these utilities, checkout the [hono-open-api-starter routes example](https://github.com/w3cj/hono-open-api-starter/blob/main/src/routes/tasks/tasks.routes.ts)
+
 - [stoker](#stoker)
   - [Utilities](#utilities)
     - [stoker/http-status-codes](#stokerhttp-status-codes)
@@ -272,7 +274,9 @@ const response = jsonContentRequired(
 
 #### stoker/openapi/helpers/json-content-one-of
 
-> Peer dependencies of `@asteasolutions/zod-to-openapi` and `openapi3-ts` required
+> Peer dependency of `@asteasolutions/zod-to-openapi`
+
+> WARNING: Not recommended right now, type hints from @hono/zod-openapi are not correct when using this helper. If you don't absolutely need `oneOf` in your specification, use zod `or` (anyOf) instead.
 
 Create a json content / schema description where the schema can be [oneOf](https://swagger.io/docs/specification/v3_0/data-models/oneof-anyof-allof-not/#oneof) multiple schemas. Useful when you have multiple possible validation response schemas.
 
@@ -309,7 +313,7 @@ const result = jsonContentOneOf(
 
 #### stoker/openapi/helpers/one-of
 
-> Peer dependencies of `@asteasolutions/zod-to-openapi` and `openapi3-ts` required
+> Peer dependency of `@asteasolutions/zod-to-openapi`
 
 Used internally by `stoker/openapi/helpers/json-content-one-of` but exported here in case you need to access the generated schemas for other use cases.
 
