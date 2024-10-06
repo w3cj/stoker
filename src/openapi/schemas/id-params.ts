@@ -6,6 +6,7 @@ const IdParamsSchema = z.object({
       name: "id",
       in: "path",
     },
+    required: ["id"],
     example: 42,
   }),
 });
