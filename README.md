@@ -39,10 +39,14 @@ To see real world usage of these utilities, checkout the [hono-open-api-starter 
     - [Schemas](#schemas)
       - [stoker/openapi/schemas/id-params](#stokeropenapischemasid-params)
         - [Example Usage](#example-usage-9)
-      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
+      - [stoker/openapi/schemas/id-string-params](#stokeropenapischemasid-string-params)
         - [Example Usage](#example-usage-10)
-      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+      - [stoker/openapi/schemas/id-uuid-params](#stokeropenapischemasid-uuid-params)
         - [Example Usage](#example-usage-11)
+      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
+        - [Example Usage](#example-usage-12)
+      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+        - [Example Usage](#example-usage-13)
   - [Credits](#credits)
 
 ## Utilities
