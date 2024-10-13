@@ -379,6 +379,90 @@ app.openapi(
 export default app;
 ```
 
+#### stoker/openapi/schemas/id-string-params
+
+Validate `id` in path params as a string.
+
+##### Example Usage
+
+```ts
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import * as HttpStatusCodes from "stoker/http-status-codes";
+import jsonContent from "stoker/openapi/helpers/json-content";
+import IdStringParamsSchema from "stoker/openapi/schemas/id-string-params";
+
+const app = new OpenAPIHono();
+
+app.openapi(
+  createRoute({
+    method: "get",
+    path: "/users/{id}",
+    request: {
+      params: IdStringParamsSchema,
+    },
+    responses: {
+      [HttpStatusCodes.OK]: jsonContent(
+        z.object({
+          id: z.string(),
+        }),
+        "Retrieve the user",
+      ),
+    },
+  }),
+  (c) => {
+    // id is a valid number
+    const { id } = c.req.valid("param");
+    return c.json({
+      id,
+    }, HttpStatusCodes.OK);
+  },
+);
+
+export default app;
+```
+
+#### stoker/openapi/schemas/id-uuid-params
+
+Validate `id` in path params as a uuid.
+
+##### Example Usage
+
+```ts
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import * as HttpStatusCodes from "stoker/http-status-codes";
+import jsonContent from "stoker/openapi/helpers/json-content";
+import IdUUIDParamsSchema from "stoker/openapi/schemas/id-uuid-params";
+
+const app = new OpenAPIHono();
+
+app.openapi(
+  createRoute({
+    method: "get",
+    path: "/users/{id}",
+    request: {
+      params: IdUUIDParamsSchema,
+    },
+    responses: {
+      [HttpStatusCodes.OK]: jsonContent(
+        z.object({
+          id: z.uuid(),
+        }),
+        "Retrieve the user",
+      ),
+    },
+  }),
+  (c) => {
+    // id is a valid number
+    const { id } = c.req.valid("param");
+    return c.json({
+      id,
+    }, HttpStatusCodes.OK);
+  },
+);
+
+export default app;
+```
+
 #### stoker/openapi/schemas/create-message-object
 
 Create an object schema with a message string property. Useful for error messages.
