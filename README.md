@@ -39,7 +39,7 @@ To see real world usage of these utilities, checkout the [hono-open-api-starter 
     - [Schemas](#schemas)
       - [stoker/openapi/schemas/id-params](#stokeropenapischemasid-params)
         - [Example Usage](#example-usage-9)
-      - [stoker/openapi/schemas/id-string-params](#stokeropenapischemasid-string-params)
+      - [stoker/openapi/schemas/slug-params](#stokeropenapischemasslug-params)
         - [Example Usage](#example-usage-10)
       - [stoker/openapi/schemas/id-uuid-params](#stokeropenapischemasid-uuid-params)
         - [Example Usage](#example-usage-11)
@@ -383,9 +383,9 @@ app.openapi(
 export default app;
 ```
 
-#### stoker/openapi/schemas/id-string-params
+#### stoker/openapi/schemas/slug-params
 
-Validate `id` in path params as a string.
+Validate `id` in path params as a slug.
 
 ##### Example Usage
 
@@ -393,7 +393,7 @@ Validate `id` in path params as a string.
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
-import IdStringParamsSchema from "stoker/openapi/schemas/id-string-params";
+import SlugParamsSchema from "stoker/openapi/schemas/slug-params";
 
 const app = new OpenAPIHono();
 
@@ -402,7 +402,7 @@ app.openapi(
     method: "get",
     path: "/users/{id}",
     request: {
-      params: IdStringParamsSchema,
+      params: SlugParamsSchema,
     },
     responses: {
       [HttpStatusCodes.OK]: jsonContent(
@@ -414,7 +414,7 @@ app.openapi(
     },
   }),
   (c) => {
-    // id is a valid number
+    // id is a valid slug
     const { id } = c.req.valid("param");
     return c.json({
       id,
@@ -456,7 +456,7 @@ app.openapi(
     },
   }),
   (c) => {
-    // id is a valid number
+    // id is a valid uuid
     const { id } = c.req.valid("param");
     return c.json({
       id,
