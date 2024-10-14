@@ -385,7 +385,7 @@ export default app;
 
 #### stoker/openapi/schemas/slug-params
 
-Validate `id` in path params as a slug.
+Validate `slug` in path params as a slug.
 
 ##### Example Usage
 
@@ -400,24 +400,24 @@ const app = new OpenAPIHono();
 app.openapi(
   createRoute({
     method: "get",
-    path: "/users/{id}",
+    path: "/users/{slug}",
     request: {
       params: SlugParamsSchema,
     },
     responses: {
       [HttpStatusCodes.OK]: jsonContent(
         z.object({
-          id: z.string(),
+          slug: z.string(),
         }),
         "Retrieve the user",
       ),
     },
   }),
   (c) => {
-    // id is a valid slug
-    const { id } = c.req.valid("param");
+    // slug is a valid slug
+    const { slug } = c.req.valid("param");
     return c.json({
-      id,
+      slug,
     }, HttpStatusCodes.OK);
   },
 );
