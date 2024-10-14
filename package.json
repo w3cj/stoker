@@ -1,7 +1,7 @@
 {
   "name": "stoker",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.2.0-beta",
   "packageManager": "pnpm@9.9.0",
   "description": "Utilities for hono and @hono/zod-openapi",
   "author": "w3cj <cj@null.computer>",
@@ -21,114 +21,22 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
     },
-    "./http-status-codes": {
-      "types": "./dist/http-status-codes.d.ts",
-      "import": "./dist/http-status-codes.mjs",
-      "require": "./dist/http-status-codes.cjs"
-    },
-    "./http-status-phrases": {
-      "types": "./dist/http-status-phrases.d.ts",
-      "import": "./dist/http-status-phrases.mjs",
-      "require": "./dist/http-status-phrases.cjs"
-    },
-    "./middlewares": {
-      "types": "./dist/middlewares/index.d.ts",
-      "import": "./dist/middlewares/index.mjs",
-      "require": "./dist/middlewares/index.cjs"
-    },
-    "./middlewares/not-found": {
-      "types": "./dist/middlewares/not-found.d.ts",
-      "import": "./dist/middlewares/not-found.mjs",
-      "require": "./dist/middlewares/not-found.cjs"
-    },
-    "./middlewares/on-error": {
-      "types": "./dist/middlewares/on-error.d.ts",
-      "import": "./dist/middlewares/on-error.mjs",
-      "require": "./dist/middlewares/on-error.cjs"
-    },
-    "./middlewares/serve-emoji-favicon": {
-      "types": "./dist/middlewares/serve-emoji-favicon.d.ts",
-      "import": "./dist/middlewares/serve-emoji-favicon.mjs",
-      "require": "./dist/middlewares/serve-emoji-favicon.cjs"
-    },
-    "./openapi": {
-      "types": "./dist/openapi/index.d.ts",
-      "import": "./dist/openapi/index.mjs",
-      "require": "./dist/openapi/index.cjs"
-    },
-    "./openapi/default-hook": {
-      "types": "./dist/openapi/default-hook.d.ts",
-      "import": "./dist/openapi/default-hook.mjs",
-      "require": "./dist/openapi/default-hook.cjs"
-    },
-    "./openapi/helpers": {
-      "types": "./dist/openapi/helpers/index.d.ts",
-      "import": "./dist/openapi/helpers/index.mjs",
-      "require": "./dist/openapi/helpers/index.cjs"
-    },
-    "./openapi/helpers/json-content": {
-      "types": "./dist/openapi/helpers/json-content.d.ts",
-      "import": "./dist/openapi/helpers/json-content.mjs",
-      "require": "./dist/openapi/helpers/json-content.cjs"
-    },
-    "./openapi/helpers/json-content-required": {
-      "types": "./dist/openapi/helpers/json-content-required.d.ts",
-      "import": "./dist/openapi/helpers/json-content-required.mjs",
-      "require": "./dist/openapi/helpers/json-content-required.cjs"
-    },
-    "./openapi/helpers/json-content-one-of": {
-      "types": "./dist/openapi/helpers/json-content-one-of.d.ts",
-      "import": "./dist/openapi/helpers/json-content-one-of.mjs",
-      "require": "./dist/openapi/helpers/json-content-one-of.cjs"
-    },
-    "./openapi/helpers/one-of": {
-      "types": "./dist/openapi/helpers/one-of.d.ts",
-      "import": "./dist/openapi/helpers/one-of.mjs",
-      "require": "./dist/openapi/helpers/one-of.cjs"
-    },
-    "./openapi/schemas": {
-      "types": "./dist/openapi/schemas/index.d.ts",
-      "import": "./dist/openapi/schemas/index.mjs",
-      "require": "./dist/openapi/schemas/index.cjs"
-    },
-    "./openapi/schemas/id-params": {
-      "types": "./dist/openapi/schemas/id-params.d.ts",
-      "import": "./dist/openapi/schemas/id-params.mjs",
-      "require": "./dist/openapi/schemas/id-params.cjs"
-    },
-    "./openapi/schemas/id-uuid-params": {
-      "types": "./dist/openapi/schemas/id-uuid-params.d.ts",
-      "import": "./dist/openapi/schemas/id-uuid-params.mjs",
-      "require": "./dist/openapi/schemas/id-uuid-params.cjs"
-    },
-    "./openapi/schemas/slug-params": {
-      "types": "./dist/openapi/schemas/slug-params.d.ts",
-      "import": "./dist/openapi/schemas/slug-params.mjs",
-      "require": "./dist/openapi/schemas/slug-params.cjs"
-    },
-    "./openapi/schemas/create-message-object": {
-      "types": "./dist/openapi/schemas/create-message-object.d.ts",
-      "import": "./dist/openapi/schemas/create-message-object.mjs",
-      "require": "./dist/openapi/schemas/create-message-object.cjs"
-    },
-    "./openapi/schemas/create-error-schema": {
-      "types": "./dist/openapi/schemas/create-error-schema.d.ts",
-      "import": "./dist/openapi/schemas/create-error-schema.mjs",
-      "require": "./dist/openapi/schemas/create-error-schema.cjs"
+    "./*": {
+      "import": "./dist/esm/*",
+      "require": "./dist/cjs/*"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/esm/index.mjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/esm/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
         "./dist/*",
-        "./dist/index.d.ts"
+        "./dist/esm/index.d.ts"
       ]
     }
   },
@@ -136,7 +44,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "unbuild && echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
