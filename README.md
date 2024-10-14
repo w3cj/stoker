@@ -39,10 +39,14 @@ To see real world usage of these utilities, checkout the [hono-open-api-starter 
     - [Schemas](#schemas)
       - [stoker/openapi/schemas/id-params](#stokeropenapischemasid-params)
         - [Example Usage](#example-usage-9)
-      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
+      - [stoker/openapi/schemas/slug-params](#stokeropenapischemasslug-params)
         - [Example Usage](#example-usage-10)
-      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+      - [stoker/openapi/schemas/id-uuid-params](#stokeropenapischemasid-uuid-params)
         - [Example Usage](#example-usage-11)
+      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
+        - [Example Usage](#example-usage-12)
+      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+        - [Example Usage](#example-usage-13)
   - [Credits](#credits)
 
 ## Utilities
@@ -369,6 +373,90 @@ app.openapi(
   }),
   (c) => {
     // id is a valid number
+    const { id } = c.req.valid("param");
+    return c.json({
+      id,
+    }, HttpStatusCodes.OK);
+  },
+);
+
+export default app;
+```
+
+#### stoker/openapi/schemas/slug-params
+
+Validate `slug` in path params as a slug.
+
+##### Example Usage
+
+```ts
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import * as HttpStatusCodes from "stoker/http-status-codes";
+import jsonContent from "stoker/openapi/helpers/json-content";
+import SlugParamsSchema from "stoker/openapi/schemas/slug-params";
+
+const app = new OpenAPIHono();
+
+app.openapi(
+  createRoute({
+    method: "get",
+    path: "/posts/{slug}",
+    request: {
+      params: SlugParamsSchema,
+    },
+    responses: {
+      [HttpStatusCodes.OK]: jsonContent(
+        z.object({
+          slug: z.string(),
+        }),
+        "Retrieve the post",
+      ),
+    },
+  }),
+  (c) => {
+    // slug is a valid slug
+    const { slug } = c.req.valid("param");
+    return c.json({
+      slug,
+    }, HttpStatusCodes.OK);
+  },
+);
+
+export default app;
+```
+
+#### stoker/openapi/schemas/id-uuid-params
+
+Validate `id` in path params as a uuid.
+
+##### Example Usage
+
+```ts
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import * as HttpStatusCodes from "stoker/http-status-codes";
+import jsonContent from "stoker/openapi/helpers/json-content";
+import IdUUIDParamsSchema from "stoker/openapi/schemas/id-uuid-params";
+
+const app = new OpenAPIHono();
+
+app.openapi(
+  createRoute({
+    method: "get",
+    path: "/users/{id}",
+    request: {
+      params: IdUUIDParamsSchema,
+    },
+    responses: {
+      [HttpStatusCodes.OK]: jsonContent(
+        z.object({
+          id: z.uuid(),
+        }),
+        "Retrieve the user",
+      ),
+    },
+  }),
+  (c) => {
+    // id is a valid uuid
     const { id } = c.req.valid("param");
     return c.json({
       id,
