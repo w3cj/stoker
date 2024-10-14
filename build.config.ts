@@ -18,6 +18,8 @@ export default defineBuildConfig({
     "src/openapi/helpers/one-of",
     "src/openapi/schemas/index",
     "src/openapi/schemas/id-params",
+    "src/openapi/schemas/id-uuid-params",
+    "src/openapi/schemas/slug-params",
     "src/openapi/schemas/create-message-object",
     "src/openapi/schemas/create-error-schema",
   ],

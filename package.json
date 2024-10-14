@@ -100,6 +100,16 @@
       "import": "./dist/openapi/schemas/id-params.mjs",
       "require": "./dist/openapi/schemas/id-params.cjs"
     },
+    "./openapi/schemas/id-uuid-params": {
+      "types": "./dist/openapi/schemas/id-uuid-params.d.ts",
+      "import": "./dist/openapi/schemas/id-uuid-params.mjs",
+      "require": "./dist/openapi/schemas/id-uuid-params.cjs"
+    },
+    "./openapi/schemas/slug-params": {
+      "types": "./dist/openapi/schemas/slug-params.d.ts",
+      "import": "./dist/openapi/schemas/slug-params.mjs",
+      "require": "./dist/openapi/schemas/slug-params.cjs"
+    },
     "./openapi/schemas/create-message-object": {
       "types": "./dist/openapi/schemas/create-message-object.d.ts",
       "import": "./dist/openapi/schemas/create-message-object.mjs",
