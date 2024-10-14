@@ -400,7 +400,7 @@ const app = new OpenAPIHono();
 app.openapi(
   createRoute({
     method: "get",
-    path: "/users/{slug}",
+    path: "/posts/{slug}",
     request: {
       params: SlugParamsSchema,
     },
@@ -409,7 +409,7 @@ app.openapi(
         z.object({
           slug: z.string(),
         }),
-        "Retrieve the user",
+        "Retrieve the post",
       ),
     },
   }),

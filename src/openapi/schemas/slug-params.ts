@@ -2,7 +2,7 @@ import { z } from "@hono/zod-openapi";
 
 // Regular expression to validate slug format: alphanumeric, underscores, and dashes
 const slugReg = /^[\w-]+$/;
-const SLUG_ERROR_MESSAGE = "Your slug can only contain letters, numbers, dashes, and underscores";
+const SLUG_ERROR_MESSAGE = "Slug can only contain letters, numbers, dashes, and underscores";
 
 const SlugParamsSchema = z.object({
   slug: z.string()
