@@ -1,7 +1,7 @@
 {
   "name": "stoker",
   "type": "module",
-  "version": "1.2.0-beta",
+  "version": "1.2.3",
   "packageManager": "pnpm@9.9.0",
   "description": "Utilities for hono and @hono/zod-openapi",
   "author": "w3cj <cj@null.computer>",
@@ -21,12 +21,204 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.cjs"
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      }
     },
-    "./*": {
-      "import": "./dist/esm/*",
-      "require": "./dist/cjs/*"
+    "./http-status-codes": {
+      "import": {
+        "types": "./dist/esm/http-status-codes.d.ts",
+        "default": "./dist/esm/http-status-codes.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/http-status-codes.d.ts",
+        "default": "./dist/cjs/http-status-codes.cjs"
+      }
+    },
+    "./http-status-phrases": {
+      "import": {
+        "types": "./dist/esm/http-status-phrases.d.ts",
+        "default": "./dist/esm/http-status-phrases.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/http-status-phrases.d.ts",
+        "default": "./dist/cjs/http-status-phrases.cjs"
+      }
+    },
+    "./middlewares": {
+      "import": {
+        "types": "./dist/esm/middlewares/index.d.ts",
+        "default": "./dist/esm/middlewares/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/middlewares/index.d.ts",
+        "default": "./dist/cjs/middlewares/index.cjs"
+      }
+    },
+    "./middlewares/not-found": {
+      "import": {
+        "types": "./dist/esm/middlewares/not-found.d.ts",
+        "default": "./dist/esm/middlewares/not-found.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/middlewares/not-found.d.ts",
+        "default": "./dist/cjs/middlewares/not-found.cjs"
+      }
+    },
+    "./middlewares/on-error": {
+      "import": {
+        "types": "./dist/esm/middlewares/on-error.d.ts",
+        "default": "./dist/esm/middlewares/on-error.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/middlewares/on-error.d.ts",
+        "default": "./dist/cjs/middlewares/on-error.cjs"
+      }
+    },
+    "./middlewares/serve-emoji-favicon": {
+      "import": {
+        "types": "./dist/esm/middlewares/serve-emoji-favicon.d.ts",
+        "default": "./dist/esm/middlewares/serve-emoji-favicon.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/middlewares/serve-emoji-favicon.d.ts",
+        "default": "./dist/cjs/middlewares/serve-emoji-favicon.cjs"
+      }
+    },
+    "./openapi": {
+      "import": {
+        "types": "./dist/esm/openapi/index.d.ts",
+        "default": "./dist/esm/openapi/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/index.d.ts",
+        "default": "./dist/cjs/openapi/index.cjs"
+      }
+    },
+    "./openapi/default-hook": {
+      "import": {
+        "types": "./dist/esm/openapi/default-hook.d.ts",
+        "default": "./dist/esm/openapi/default-hook.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/default-hook.d.ts",
+        "default": "./dist/cjs/openapi/default-hook.cjs"
+      }
+    },
+    "./openapi/helpers": {
+      "import": {
+        "types": "./dist/esm/openapi/helpers/index.d.ts",
+        "default": "./dist/esm/openapi/helpers/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/helpers/index.d.ts",
+        "default": "./dist/cjs/openapi/helpers/index.cjs"
+      }
+    },
+    "./openapi/helpers/json-content": {
+      "import": {
+        "types": "./dist/esm/openapi/helpers/json-content.d.ts",
+        "default": "./dist/esm/openapi/helpers/json-content.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/helpers/json-content.d.ts",
+        "default": "./dist/cjs/openapi/helpers/json-content.cjs"
+      }
+    },
+    "./openapi/helpers/json-content-required": {
+      "import": {
+        "types": "./dist/esm/openapi/helpers/json-content-required.d.ts",
+        "default": "./dist/esm/openapi/helpers/json-content-required.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/helpers/json-content-required.d.ts",
+        "default": "./dist/cjs/openapi/helpers/json-content-required.cjs"
+      }
+    },
+    "./openapi/helpers/json-content-one-of": {
+      "import": {
+        "types": "./dist/esm/openapi/helpers/json-content-one-of.d.ts",
+        "default": "./dist/esm/openapi/helpers/json-content-one-of.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/helpers/json-content-one-of.d.ts",
+        "default": "./dist/cjs/openapi/helpers/json-content-one-of.cjs"
+      }
+    },
+    "./openapi/helpers/one-of": {
+      "import": {
+        "types": "./dist/esm/openapi/helpers/one-of.d.ts",
+        "default": "./dist/esm/openapi/helpers/one-of.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/helpers/one-of.d.ts",
+        "default": "./dist/cjs/openapi/helpers/one-of.cjs"
+      }
+    },
+    "./openapi/schemas": {
+      "import": {
+        "types": "./dist/esm/openapi/schemas/index.d.ts",
+        "default": "./dist/esm/openapi/schemas/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/schemas/index.d.ts",
+        "default": "./dist/cjs/openapi/schemas/index.cjs"
+      }
+    },
+    "./openapi/schemas/id-params": {
+      "import": {
+        "types": "./dist/esm/openapi/schemas/id-params.d.ts",
+        "default": "./dist/esm/openapi/schemas/id-params.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/schemas/id-params.d.ts",
+        "default": "./dist/cjs/openapi/schemas/id-params.cjs"
+      }
+    },
+    "./openapi/schemas/id-uuid-params": {
+      "import": {
+        "types": "./dist/esm/openapi/schemas/id-uuid-params.d.ts",
+        "default": "./dist/esm/openapi/schemas/id-uuid-params.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/schemas/id-uuid-params.d.ts",
+        "default": "./dist/cjs/openapi/schemas/id-uuid-params.cjs"
+      }
+    },
+    "./openapi/schemas/slug-params": {
+      "import": {
+        "types": "./dist/esm/openapi/schemas/slug-params.d.ts",
+        "default": "./dist/esm/openapi/schemas/slug-params.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/schemas/slug-params.d.ts",
+        "default": "./dist/cjs/openapi/schemas/slug-params.cjs"
+      }
+    },
+    "./openapi/schemas/create-message-object": {
+      "import": {
+        "types": "./dist/esm/openapi/schemas/create-message-object.d.ts",
+        "default": "./dist/esm/openapi/schemas/create-message-object.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/schemas/create-message-object.d.ts",
+        "default": "./dist/cjs/openapi/schemas/create-message-object.cjs"
+      }
+    },
+    "./openapi/schemas/create-error-schema": {
+      "import": {
+        "types": "./dist/esm/openapi/schemas/create-error-schema.d.ts",
+        "default": "./dist/esm/openapi/schemas/create-error-schema.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/openapi/schemas/create-error-schema.d.ts",
+        "default": "./dist/cjs/openapi/schemas/create-error-schema.cjs"
+      }
     }
   },
   "main": "./dist/esm/index.mjs",
@@ -35,8 +227,7 @@
   "typesVersions": {
     "*": {
       "*": [
-        "./dist/*",
-        "./dist/esm/index.d.ts"
+        "./dist/*"
       ]
     }
   },
