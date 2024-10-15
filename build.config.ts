@@ -6,17 +6,15 @@ export default defineBuildConfig({
       input: "src/",
       outDir: "dist/esm/",
       format: "esm",
+      ext: "js",
     },
     {
       input: "src/",
       outDir: "dist/cjs/",
       format: "cjs",
-      ext: "cjs",
+      ext: "js",
     },
   ],
-  declaration: true,
+  declaration: "compatible",
   clean: true,
-  rollup: {
-    emitCJS: true,
-  },
 });
