@@ -5,10 +5,14 @@ export default antfu({
   type: "lib",
   typescript: true,
   formatters: true,
+  lessOpinionated: true,
   stylistic: {
     indent: 2,
     semi: true,
     quotes: "double",
+    overrides: {
+      "func-style": ["error", "expression"],
+    },
   },
 }, {
   rules: {

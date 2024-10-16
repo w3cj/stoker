@@ -5,9 +5,9 @@ import {
 
 import type { ZodSchema } from "./types";
 
-export default function oneOf<
+const oneOf = <
   T extends ZodSchema,
->(schemas: T[]) {
+>(schemas: T[]) => {
   const registry = new OpenAPIRegistry();
 
   schemas.forEach((schema, index) => {
@@ -18,4 +18,6 @@ export default function oneOf<
   const components = generator.generateComponents();
 
   return components.components?.schemas ? Object.values(components.components!.schemas!) : [];
-}
+};
+
+export default oneOf;

@@ -1,6 +1,6 @@
 import { z } from "@hono/zod-openapi";
 
-export default function createMessageObjectSchema(exampleMessage: string = "Hello World") {
+const createMessageObjectSchema = (exampleMessage: string = "Hello World") => {
   return z.object({
     message: z.string(),
   }).openapi({
@@ -8,4 +8,6 @@ export default function createMessageObjectSchema(exampleMessage: string = "Hell
       message: exampleMessage,
     },
   });
-}
+};
+
+export default createMessageObjectSchema;

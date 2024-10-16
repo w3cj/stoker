@@ -2,9 +2,11 @@ import type { ZodSchema } from "./types";
 
 import oneOf from "./one-of";
 
-export default function jsonContentOneOf<
+const jsonContentOneOf = <
   T extends ZodSchema,
->(schemas: T[], description: string) {
+>(schemas: T[],
+  description: string,
+) => {
   return {
     content: {
       "application/json": {
@@ -15,4 +17,6 @@ export default function jsonContentOneOf<
     },
     description,
   };
-}
+};
+
+export default jsonContentOneOf;

@@ -38,6 +38,9 @@ importers:
       esno:
         specifier: ^4.7.0
         version: 4.7.0
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       hono:
         specifier: ^4.6.3
         version: 4.6.3
