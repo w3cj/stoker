@@ -10,12 +10,11 @@ export default antfu({
     indent: 2,
     semi: true,
     quotes: "double",
-    overrides: {
-      "func-style": ["error", "expression"],
-    },
   },
 }, {
   rules: {
+    "func-style": ["error", "expression"],
+    "import/extensions": ["error", "ignorePackages"],
     "ts/explicit-function-return-type": ["off"],
     "perfectionist/sort-imports": ["error", {
       internalPattern: ["@/**"],

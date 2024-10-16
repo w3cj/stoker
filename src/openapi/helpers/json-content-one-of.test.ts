@@ -2,7 +2,7 @@
 import { z } from "@hono/zod-openapi";
 import { describe, expect, it } from "vitest";
 
-import jsonContentOneOf from "./json-content-one-of";
+import jsonContentOneOf from "./json-content-one-of.js";
 
 describe("jsonContentOneOf", () => {
   it("accepts a single schema", () => {

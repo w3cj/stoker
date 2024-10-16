@@ -1,2 +1,2 @@
-export * as middlewares from "./middlewares";
-export * as openapi from "./openapi";
+export * as middlewares from "./middlewares/index.js";
+export * as openapi from "./openapi/index.js";

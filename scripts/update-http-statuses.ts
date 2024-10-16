@@ -22,7 +22,7 @@ interface JsonCode {
   isDeprecated?: boolean;
 }
 
-async function run() {
+const run = async () => {
   console.log("Updating src/http-status-codes.ts and src/http-status-phrases.ts");
 
   const project = new Project({
@@ -88,6 +88,6 @@ async function run() {
   await project.save();
   await execSync("npx eslint --fix ./src/http-status-codes.ts ./src/http-status-phrases.ts");
   console.log("Successfully generated src/http-status-codes.ts and src/http-status-phrases.ts");
-}
+};
 
 run();

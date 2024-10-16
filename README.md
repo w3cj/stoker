@@ -288,8 +288,8 @@ Create a json content / schema description where the schema can be [oneOf](https
 
 ```ts
 import { z } from "@hono/zod-openapi";
-import createErrorSchema from "stocker/openapi/schemas/create-error-schema";
 import jsonContentOneOf from "stoker/openapi/helpers/json-content-one-of";
+import createErrorSchema from "stoker/openapi/schemas/create-error-schema";
 import IdParamsSchema from "stoker/openapi/schemas/id-params";
 
 const bodySchema = z.object({
@@ -323,8 +323,8 @@ Used internally by `stoker/openapi/helpers/json-content-one-of` but exported her
 
 ```ts
 import { z } from "@hono/zod-openapi";
-import createErrorSchema from "stocker/openapi/schemas/create-error-schema";
 import oneOf from "stoker/openapi/helpers/one-of";
+import createErrorSchema from "stoker/openapi/schemas/create-error-schema";
 import IdParamsSchema from "stoker/openapi/schemas/id-params";
 
 const bodySchema = z.object({
@@ -512,9 +512,9 @@ Create an example error schema with zod error / validation messages based on giv
 
 ```ts
 import { createRoute, z } from "@hono/zod-openapi";
-import createErrorSchema from "stocker/openapi/schemas/create-error-schema";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
+import createErrorSchema from "stoker/openapi/schemas/create-error-schema";
 
 const TaskSchema = z.object({
   name: z.string(),

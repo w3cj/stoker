@@ -1,3 +1,3 @@
-export { default as defaultHook } from "./default-hook";
-export * as helpers from "./helpers";
-export * as schemas from "./schemas";
+export { default as defaultHook } from "./default-hook.js";
+export * as helpers from "./helpers/index.js";
+export * as schemas from "./schemas/index.js";

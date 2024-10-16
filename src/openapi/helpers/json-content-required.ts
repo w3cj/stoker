@@ -1,6 +1,6 @@
 import type { ZodSchema } from "./types";
 
-import jsonContent from "./json-content";
+import jsonContent from "./json-content.js";
 
 const jsonContentRequired = <
   T extends ZodSchema,

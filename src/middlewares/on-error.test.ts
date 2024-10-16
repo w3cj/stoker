@@ -1,7 +1,7 @@
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import onError from "./on-error";
+import onError from "./on-error.js";
 
 describe("onError", () => {
   it("should use NODE_ENV from context if defined", async () => {
