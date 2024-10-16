@@ -3,7 +3,7 @@ import {
   OpenAPIRegistry,
 } from "@asteasolutions/zod-to-openapi";
 
-import type { ZodSchema } from "./types";
+import type { ZodSchema } from "./types.ts";
 
 const oneOf = <
   T extends ZodSchema,

@@ -1,6 +1,6 @@
 import { z } from "@hono/zod-openapi";
 
-import type { ZodSchema } from "../helpers/types";
+import type { ZodSchema } from "../helpers/types.ts";
 
 const createErrorSchema = <
   T extends ZodSchema,

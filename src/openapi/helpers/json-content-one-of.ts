@@ -1,4 +1,4 @@
-import type { ZodSchema } from "./types";
+import type { ZodSchema } from "./types.ts";
 
 import oneOf from "./one-of.js";
 
