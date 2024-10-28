@@ -489,7 +489,7 @@ const app = new OpenAPIHono();
 app.openapi(
   createRoute({
     method: "get",
-    path: "/users/{id}",
+    path: "/users/{userId}",
     request: {
       params: getParamsSchema({
         name: "userId",
@@ -499,7 +499,7 @@ app.openapi(
     responses: {
       [HttpStatusCodes.OK]: jsonContent(
         z.object({
-          id: z.nanoid(),
+          userId: z.nanoid(),
         }),
         "Retrieve the user",
       ),
