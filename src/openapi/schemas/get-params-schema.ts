@@ -2,7 +2,7 @@ import { z } from "@hono/zod-openapi";
 
 type Validator = "uuid" | "nanoid" | "cuid" | "cuid2" | "ulid";
 
-export interface IdCustomParamsSchemaType {
+export interface ParamsSchema {
   name?: string;
   validator?: Validator | undefined;
 }
@@ -18,7 +18,7 @@ const examples: Record<Validator, string> = {
 const getParamsSchema = ({
   name = "id",
   validator = "uuid",
-}: IdCustomParamsSchemaType) => {
+}: ParamsSchema) => {
   return z.object({
     [name]: z.string()[validator]().openapi({
       param: {
