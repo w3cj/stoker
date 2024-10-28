@@ -499,7 +499,7 @@ app.openapi(
     responses: {
       [HttpStatusCodes.OK]: jsonContent(
         z.object({
-          id: z.uuid(),
+          id: z.nanoid(),
         }),
         "Retrieve the user",
       ),
