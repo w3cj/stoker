@@ -43,10 +43,12 @@ To see real world usage of these utilities, checkout the [hono-open-api-starter 
         - [Example Usage](#example-usage-10)
       - [stoker/openapi/schemas/id-uuid-params](#stokeropenapischemasid-uuid-params)
         - [Example Usage](#example-usage-11)
-      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
+      - [stoker/openapi/schemas/get-params-schema](#stokeropenapischemasget-params-schema)
         - [Example Usage](#example-usage-12)
-      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+      - [stoker/openapi/schemas/create-message-object](#stokeropenapischemascreate-message-object)
         - [Example Usage](#example-usage-13)
+      - [stoker/openapi/schemas/create-error-schema](#stokeropenapischemascreate-error-schema)
+        - [Example Usage](#example-usage-14)
   - [Credits](#credits)
 
 ## Utilities
@@ -460,6 +462,54 @@ app.openapi(
     const { id } = c.req.valid("param");
     return c.json({
       id,
+    }, HttpStatusCodes.OK);
+  },
+);
+
+export default app;
+```
+
+#### stoker/openapi/schemas/get-params-schema
+
+Validate a custom named path param using Zod string validators by calling the function `getParamsSchema({ name, validator })`.
+
+Name defaults to `id`.
+Validator defaults to `uuid` and supports type `"uuid" | "nanoid" | "cuid" | "cuid2" | "ulid"`.
+
+##### Example Usage
+
+```ts
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import * as HttpStatusCodes from "stoker/http-status-codes";
+import jsonContent from "stoker/openapi/helpers/json-content";
+import getParamsSchema from "stoker/openapi/schemas/get-params-schema";
+
+const app = new OpenAPIHono();
+
+app.openapi(
+  createRoute({
+    method: "get",
+    path: "/users/{userId}",
+    request: {
+      params: getParamsSchema({
+        name: "userId",
+        validator: "nanoid",
+      }),
+    },
+    responses: {
+      [HttpStatusCodes.OK]: jsonContent(
+        z.object({
+          userId: z.nanoid(),
+        }),
+        "Retrieve the user",
+      ),
+    },
+  }),
+  (c) => {
+    // userId is a valid nanoid
+    const { userId } = c.req.valid("param");
+    return c.json({
+      userId,
     }, HttpStatusCodes.OK);
   },
 );
