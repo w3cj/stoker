@@ -1,8 +1,8 @@
 {
   "name": "stoker",
   "type": "module",
-  "version": "1.3.0",
-  "packageManager": "pnpm@9.9.0",
+  "version": "1.4.0",
+  "packageManager": "pnpm@9.14.2",
   "description": "Utilities for hono and @hono/zod-openapi",
   "author": "w3cj <cj@null.computer>",
   "license": "MIT",
@@ -318,7 +318,7 @@
   },
   "peerDependencies": {
     "@asteasolutions/zod-to-openapi": "^7.0.0",
-    "@hono/zod-openapi": "^0.16.0",
+    "@hono/zod-openapi": "^0.18.0",
     "hono": "^4.0.0",
     "openapi3-ts": "^4.4.0"
   },
@@ -328,28 +328,28 @@
     }
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.3.2",
-    "@antfu/ni": "^0.23.0",
+    "@antfu/eslint-config": "^3.10.0",
+    "@antfu/ni": "^0.23.1",
     "@antfu/utils": "^0.7.10",
-    "@asteasolutions/zod-to-openapi": "^7.1.2",
-    "@hono/zod-openapi": "^0.16.3",
-    "@types/node": "^22.5.4",
-    "bumpp": "^9.5.2",
-    "eslint": "^9.9.1",
+    "@asteasolutions/zod-to-openapi": "^7.2.0",
+    "@hono/zod-openapi": "^0.18.0",
+    "@types/node": "^22.10.0",
+    "bumpp": "^9.8.1",
+    "eslint": "^9.15.0",
     "eslint-plugin-format": "^0.1.2",
-    "esno": "^4.7.0",
+    "esno": "^4.8.0",
     "fast-glob": "^3.3.2",
-    "hono": "^4.6.3",
+    "hono": "^4.6.12",
     "lint-staged": "^15.2.10",
     "openapi3-ts": "^4.4.0",
     "pnpm": "^9.9.0",
     "simple-git-hooks": "^2.11.1",
-    "ts-morph": "^23.0.0",
-    "tsx": "^4.19.1",
-    "typescript": "^5.5.4",
+    "ts-morph": "^24.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
     "unbuild": "^2.0.0",
-    "vite": "^5.4.3",
-    "vitest": "^2.0.5"
+    "vite": "^6.0.0",
+    "vitest": "^2.1.5"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
