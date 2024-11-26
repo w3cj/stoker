@@ -1,7 +1,7 @@
 {
   "name": "stoker",
   "type": "module",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "packageManager": "pnpm@9.14.2",
   "description": "Utilities for hono and @hono/zod-openapi",
   "author": "w3cj <cj@null.computer>",
@@ -318,7 +318,7 @@
   },
   "peerDependencies": {
     "@asteasolutions/zod-to-openapi": "^7.0.0",
-    "@hono/zod-openapi": "^0.18.0",
+    "@hono/zod-openapi": ">=0.16.0",
     "hono": "^4.0.0",
     "openapi3-ts": "^4.4.0"
   },
