@@ -24,6 +24,7 @@ const getParamsSchema = ({
       param: {
         name,
         in: "path",
+        required: true,
       },
       required: [name],
       example: examples[validator],

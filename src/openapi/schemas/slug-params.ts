@@ -11,6 +11,7 @@ const SlugParamsSchema = z.object({
       param: {
         name: "slug",
         in: "path",
+        required: true,
       },
       required: ["slug"],
       example: "my-cool-article",

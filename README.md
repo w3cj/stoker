@@ -65,6 +65,7 @@ HTTP status code constants. Provides individual typed / documented exports. Use 
 
 ```ts
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 
 const app = new OpenAPIHono();
@@ -137,6 +138,7 @@ A default 404 handler.
 
 ```ts
 import { Hono } from "hono";
+
 import notFound from "stoker/middlewares/not-found";
 
 const app = new Hono();
@@ -159,6 +161,7 @@ A default error handler.
 
 ```ts
 import { Hono } from "hono";
+
 import onError from "stoker/middlewares/on-error";
 
 const app = new Hono();
@@ -176,6 +179,7 @@ Serve an svg emoji as a favicon from `/favicon.ico`
 
 ```ts
 import { Hono } from "hono";
+
 import serveEmojiFavicon from "stoker/middlewares/serve-emoji-favicon";
 
 const app = new Hono();
@@ -195,6 +199,7 @@ A default error hook you can include in your OpenAPIHono instance. Includes the 
 
 ```ts
 import { OpenAPIHono } from "@hono/zod-openapi";
+
 import defaultHook from "stoker/openapi/default-hook";
 
 /*
@@ -221,6 +226,7 @@ Create a content / schema description with a type of `application/json`
 
 ```ts
 import { z } from "@hono/zod-openapi";
+
 import jsonContent from "stoker/openapi/helpers/json-content";
 
 const schema = z.object({
@@ -254,6 +260,7 @@ Create a content / schema description with a type of `application/json` and requ
 
 ```ts
 import { z } from "@hono/zod-openapi";
+
 import jsonContentRequired from "stoker/openapi/helpers/json-content-required";
 
 const schema = z.object({
@@ -290,6 +297,7 @@ Create a json content / schema description where the schema can be [oneOf](https
 
 ```ts
 import { z } from "@hono/zod-openapi";
+
 import jsonContentOneOf from "stoker/openapi/helpers/json-content-one-of";
 import createErrorSchema from "stoker/openapi/schemas/create-error-schema";
 import IdParamsSchema from "stoker/openapi/schemas/id-params";
@@ -325,6 +333,7 @@ Used internally by `stoker/openapi/helpers/json-content-one-of` but exported her
 
 ```ts
 import { z } from "@hono/zod-openapi";
+
 import oneOf from "stoker/openapi/helpers/one-of";
 import createErrorSchema from "stoker/openapi/schemas/create-error-schema";
 import IdParamsSchema from "stoker/openapi/schemas/id-params";
@@ -351,6 +360,7 @@ Validate `id` in path params as a number.
 
 ```ts
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
 import IdParamsSchema from "stoker/openapi/schemas/id-params";
@@ -393,6 +403,7 @@ Validate `slug` in path params as a slug.
 
 ```ts
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
 import SlugParamsSchema from "stoker/openapi/schemas/slug-params";
@@ -435,6 +446,7 @@ Validate `id` in path params as a uuid.
 
 ```ts
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
 import IdUUIDParamsSchema from "stoker/openapi/schemas/id-uuid-params";
@@ -480,6 +492,7 @@ Validator defaults to `uuid` and supports type `"uuid" | "nanoid" | "cuid" | "cu
 
 ```ts
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
 import getParamsSchema from "stoker/openapi/schemas/get-params-schema";
@@ -525,6 +538,7 @@ Create an object schema with a message string property. Useful for error message
 
 ```ts
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import * as HttpStatusPhrases from "stoker/http-status-phrases";
 import jsonContent from "stoker/openapi/helpers/json-content";
@@ -562,6 +576,7 @@ Create an example error schema with zod error / validation messages based on giv
 
 ```ts
 import { createRoute, z } from "@hono/zod-openapi";
+
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import jsonContent from "stoker/openapi/helpers/json-content";
 import createErrorSchema from "stoker/openapi/schemas/create-error-schema";

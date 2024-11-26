@@ -1,7 +1,7 @@
 {
   "name": "stoker",
   "type": "module",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "packageManager": "pnpm@9.14.2",
   "description": "Utilities for hono and @hono/zod-openapi",
   "author": "w3cj <cj@null.computer>",
