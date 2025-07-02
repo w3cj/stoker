@@ -14,7 +14,6 @@ export default antfu({
 }, {
   rules: {
     "func-style": ["error", "expression"],
-    "import/extensions": ["error", "ignorePackages"],
     "ts/explicit-function-return-type": ["off"],
     "perfectionist/sort-imports": ["error", {
       tsconfigRootDir: ".",
