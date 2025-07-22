@@ -6,8 +6,7 @@ const createErrorSchema = <
   T extends ZodSchema,
 >(schema: T) => {
   const { error } = schema.safeParse(
-    schema._def.typeName
-    === z.ZodFirstPartyTypeKind.ZodArray
+    schema.def.type === "array"
       ? []
       : {},
   );
