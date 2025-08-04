@@ -7,7 +7,10 @@ const defaultHook: Hook<any, any, any, any> = (result, c) => {
     return c.json(
       {
         success: result.success,
-        error: result.error,
+        error: {
+          name: result.error.name,
+          issues: result.error.issues,
+        },
       },
       UNPROCESSABLE_ENTITY,
     );
