@@ -4,7 +4,7 @@ import type { ZodIssue, ZodSchema } from "../helpers/types.ts";
 
 const createErrorSchema = <T extends ZodSchema>(schema: T) => {
   const { error } = schema.safeParse(
-    schema._def.typeName === z.ZodFirstPartyTypeKind.ZodArray ? [] : {},
+    schema._def.type === "array" ? [schema.element._def.type === "string" ? 123 : "invalid"] : {},
   );
 
   const example = error
@@ -43,7 +43,7 @@ const createErrorSchema = <T extends ZodSchema>(schema: T) => {
         name: z.string(),
       })
       .openapi({
-        example, // ✅ only plain object with `issues`
+        example,
       }),
   });
 };
